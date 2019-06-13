@@ -8,6 +8,8 @@ import { routing } from './routes';
 // Components
 import { RootComponent } from './routes/root/root.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { QuestionComponent } from './components/question/question.component';
+import { QuestionSectionComponent } from './components/question-section/question-section.component';
 
 // Route State Management
 import { RouteUiStateQuery, RouteUiStateService, RouteUiStateStore } from './shared/state/ui';
@@ -17,7 +19,7 @@ export const storeName = 'route-UIState'; // Change this property to be unique &
 
 @NgModule({
   imports: [CommonModule, SiteModule, routing],
-  declarations: [RootComponent, UserFormComponent],
+  declarations: [RootComponent, UserFormComponent, QuestionSectionComponent, QuestionComponent],
   providers: [RouteUiStateService, RouteUiStateStore, RouteUiStateQuery, RouteDomainStateService],
   exports: [],
   entryComponents: [],

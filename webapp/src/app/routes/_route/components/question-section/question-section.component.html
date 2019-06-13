@@ -1,0 +1,11 @@
+<app-stepper>
+  <step>
+    <ng-template step-label-template>
+      {{ questionTitle }}
+    </ng-template>
+    <ng-template step-body-template>
+      <!-- pass question here -->
+      <ng-content></ng-content>
+    </ng-template>
+  </step>
+</app-stepper>

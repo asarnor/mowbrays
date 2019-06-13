@@ -17,7 +17,7 @@ export class FormFieldComponent implements ControlValueAccessor, OnInit {
   /** Placeholder text */
   @Input() placeholder: string;
   /** Form field type */
-  @Input() type: 'text' | 'select' = 'text';
+  @Input() type: string;
   /** If form field type is select, supply list of options */
   @Input() options: any[];
   /** Is this field required */
@@ -36,6 +36,9 @@ export class FormFieldComponent implements ControlValueAccessor, OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.type) {
+      this.type = 'text';
+    }
     // Determine if field is required or not
     // Angular doesn't have an easier way to determine this
     if (

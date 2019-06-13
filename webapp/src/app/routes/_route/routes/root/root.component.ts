@@ -9,6 +9,8 @@ import { SettingsService } from 'src/app/shared/state/settings';
 // Route State
 import { RouteUiStateService } from '../../shared/state/ui';
 // import { RouteDomainStateService } from '../../shared/state/domain';
+import { HAZARDS } from '../../shared/services/questionaire';
+import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,8 @@ import { RouteUiStateService } from '../../shared/state/ui';
 export class RootComponent implements OnInit, OnDestroy {
   public users$ = this.domainState.users.users$;
   public user: Models.User;
+  public hazards: any;
+  public formMain: FormGroup;
 
   // private uiState: UiStateService,
   constructor(
@@ -27,7 +31,15 @@ export class RootComponent implements OnInit, OnDestroy {
     // private routeDomainState: RouteDomainStateService, // Route only domain state
     private routeUIState: RouteUiStateService, // Route only UI state
     private settings: SettingsService, // App settings/global properties
-  ) {}
+    private fb: FormBuilder,
+  ) {
+    this.hazards = HAZARDS;
+    this.formMain = this.fb.group({
+      hazards: new FormArray([], this.minSelectedCheckboxes(0)),
+    });
+
+    this.addCheckboxes();
+  }
 
   ngOnInit() {
     // Load users
@@ -60,6 +72,34 @@ export class RootComponent implements OnInit, OnDestroy {
    */
   public userDelete(user: Models.User) {
     this.domainState.users.delete(user).subscribe();
+  }
+
+  private addCheckboxes() {
+    this.hazards.data.map((o: any, i: number) => {
+      console.log(o);
+
+      const control = new FormControl(i === 0); // if first item set to true, else false
+      (this.formMain.controls.hazards as FormArray).push(control);
+    });
+  }
+
+  public minSelectedCheckboxes(min = 0) {
+    const validator: any = (formArray: FormArray) => {
+      const totalSelected = formArray.controls
+        // get a list of checkbox values (boolean)
+        .map(control => control.value)
+        // total up the number of checked checkboxes
+        .reduce((prev, next) => (next ? prev + next : prev), 0);
+
+      // if the total is not greater than the minimum, return the error message
+      return totalSelected >= min ? null : { required: true };
+    };
+
+    return validator;
+  }
+
+  public userSubmit() {
+    console.log('click');
   }
 
   /** Must be present even if not used for autounsub */
