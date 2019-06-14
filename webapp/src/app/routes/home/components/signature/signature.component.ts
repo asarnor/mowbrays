@@ -44,10 +44,10 @@ export class SignatureComponent implements OnInit, OnDestroy {
     }
   }
 
-  private displayLocationInfo(position:any) {
+  private displayLocationInfo(position: any) {
     const lng = position.coords.longitude;
     const lat = position.coords.latitude;
-    console.log(`longitude: ${ lng } | latitude: ${ lat }`);
+    console.log(`longitude: ${lng} | latitude: ${lat}`);
   }
 
   /** Must be present even if not used for autounsub */

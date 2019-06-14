@@ -8,6 +8,7 @@ import { SharedModule } from '$shared';
 import { ConfirmationModalComponent } from './modals/confirmation/confirmation-modal.component';
 import { LogoutModalComponent } from './modals/logout/logout-modal.component';
 import { FeedbackComponent } from './modals/feedback/feedback.component';
+import { AddCrewModalComponent } from './modals/add-crew/add-crew.component';
 
 // Layout
 import { FooterComponent } from './masterpage/footer/footer.component';
@@ -26,7 +27,7 @@ import { CounterComponent } from './counter/counter.component';
 import { UILibModule } from './ui-lib/ui-lib.module';
 
 // Modals include
-const APP_MODALS = [ConfirmationModalComponent, LogoutModalComponent, FeedbackComponent];
+const APP_MODALS = [ConfirmationModalComponent, LogoutModalComponent, FeedbackComponent, AddCrewModalComponent];
 
 // Components to include
 export const APP_COMPONENTS = [

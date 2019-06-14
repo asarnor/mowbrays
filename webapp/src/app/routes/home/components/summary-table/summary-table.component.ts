@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { ModalsService } from '$modals';
 
 export interface JobBriefSummary {
   address: string;
@@ -58,9 +59,14 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
   public displayedColumns: string[] = ['address', 'date', 'foreman', 'signed'];
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
-  constructor() {}
+  constructor(private modals: ModalsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // Open log out modal window
+    this.modals
+      .open('AddCrewModalComponent', false, 'lg', 60)
+      .afterClosed();
+  }
 
   public applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

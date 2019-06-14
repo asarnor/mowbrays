@@ -36,7 +36,7 @@ export class RootComponent implements OnInit, OnDestroy {
   ) {
     this.hazards = HAZARDS;
     this.formMain = this.fb.group({
-      hazards: new FormArray([], this.minSelectedCheckboxes(0)),
+      hazards: new FormArray([], this.minSelectedCheckboxes(1)),
     });
 
     this.addCheckboxes();
@@ -85,7 +85,7 @@ export class RootComponent implements OnInit, OnDestroy {
     });
   }
 
-  public minSelectedCheckboxes(min = 0) {
+  public minSelectedCheckboxes(min = 1) {
     const validator: any = (formArray: FormArray) => {
       const totalSelected = formArray.controls
         // get a list of checkbox values (boolean)
