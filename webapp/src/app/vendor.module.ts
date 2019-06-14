@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NtPipesModule } from '@ntersol-ui/pipes';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 import {
   MatIconModule,
@@ -44,6 +45,7 @@ const modules = [
   MatTooltipModule,
   NtPipesModule,
   MatTableModule,
+  SignaturePadModule,
 ];
 
 @NgModule({

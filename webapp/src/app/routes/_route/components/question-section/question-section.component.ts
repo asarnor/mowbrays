@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class QuestionSectionComponent implements OnInit {
   @Input() user: Models.User;
+  @Input() questionTitle: string;
 
   constructor() {}
 
