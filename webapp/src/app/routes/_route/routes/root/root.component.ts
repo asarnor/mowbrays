@@ -23,6 +23,7 @@ export class RootComponent implements OnInit, OnDestroy {
   public user: Models.User;
   public hazards: any;
   public formMain: FormGroup;
+  public spanish: boolean;
 
   // private uiState: UiStateService,
   constructor(
@@ -57,6 +58,7 @@ export class RootComponent implements OnInit, OnDestroy {
     // Domain state from simple store
     this.domainState.simple.todos$.subscribe(val => console.log('Todos', val));
     this.domainState.simple.todos();
+    this.spanish = false;
   }
 
   /**

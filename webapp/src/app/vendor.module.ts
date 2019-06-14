@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NtPipesModule } from '@ntersol-ui/pipes';
+import {MatTableModule} from '@angular/material/table';
 
 import {
   MatIconModule,
@@ -42,6 +43,7 @@ const modules = [
   MatPaginatorModule,
   MatTooltipModule,
   NtPipesModule,
+  MatTableModule,
 ];
 
 @NgModule({

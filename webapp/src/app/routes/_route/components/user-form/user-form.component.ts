@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DomainService } from '$domain';
-import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { REMOVAL_METHOD } from './questionaire';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -18,11 +17,6 @@ export class UserFormComponent implements OnInit, OnChanges {
   constructor(private domain: DomainService, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.checkboxData['name'] = 'test';
-    this.checkboxData['checked'] = true;
-    this.checkboxData['disabled'] = true;
-    this.removalMethod = REMOVAL_METHOD;
-
     this.formMain = this.fb.group({
       address: ['', []],
       company: ['', []],
@@ -32,10 +26,7 @@ export class UserFormComponent implements OnInit, OnChanges {
       phone: ['', []],
       username: ['', [Validators.required]],
       website: ['', []],
-      orders: new FormArray([]),
     });
-
-    this.addCheckboxes();
   }
 
   ngOnChanges(model: SimpleChanges) {
@@ -76,14 +67,5 @@ export class UserFormComponent implements OnInit, OnChanges {
   public userEdit(user: Models.User) {
     this.formMain.patchValue(user);
     this.isEditing = true;
-  }
-
-  private addCheckboxes() {
-    this.removalMethod.map((o: any, i: number) => {
-      console.log(o);
-
-      const control = new FormControl(i === 0); // if first item set to true, else false
-      (this.formMain.controls.orders as FormArray).push(control);
-    });
   }
 }

@@ -221,7 +221,7 @@ export const HAZARDS = {
     title: 'HAZARDS',
     title_s: 'PELIGROS',
     subTitle: 'Check All that Apply',
-    subTitle_s: 'Marque todo lo que Corresponda'
+    subTitle_s: 'Marque todo lo que Corresponda',
   },
   data: [
     { id: 1, name: 'electric', label: 'Electricity', selected: false, label_s: 'Electricidad' },
