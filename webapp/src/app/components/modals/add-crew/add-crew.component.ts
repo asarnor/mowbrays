@@ -28,14 +28,12 @@ export class AddCrewModalComponent {
   }
 
   public deleteCrew(crewMember: any) {
-    this.crewSelected.filter((member: any, i: number) => {        
-      
+    this.crewSelected.filter((member: any, i: number) => {
       if (member.id === crewMember.id) {
         this.crewSelected.splice(i, 1);
       }
     });
     this.updateAvailable(crewMember);
-    
   }
 
   public addCrewMember(crewMember: any) {

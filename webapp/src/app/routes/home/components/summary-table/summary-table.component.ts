@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ModalsService } from '$modals';
@@ -56,20 +57,31 @@ const ELEMENT_DATA: JobBriefSummary[] = [
   ],
 })
 export class SummaryTableComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['address', 'date', 'foreman', 'signed'];
+  public displayedColumns: string[] = ['address', 'date', 'foreman', 'signed', 'modify', 'crew'];
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
   constructor(private modals: ModalsService) {}
 
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   ngOnInit() {
     // Open log out modal window
-    this.modals
-      .open('AddCrewModalComponent', false, 'lg', 60)
-      .afterClosed();
+    // this.modals.open('AddFormModalComponent', false, 'lg', 60).afterClosed();
+    this.dataSource.sort = this.sort;
   }
 
   public applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  public modifyForm($event: Event) {
+    $event.stopPropagation();
+    this.modals.open('AddFormModalComponent', false, 'lg', 60).afterClosed();
+  }
+
+  public crewForm($event: Event) {
+    $event.stopPropagation();
+    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
   }
 
   /** Must be present even if not used for autounsub */

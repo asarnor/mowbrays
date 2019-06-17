@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <h3 class="modal-title"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Add Form</h3>
+  <button type="button" class="close" aria-label="Close" mat-dialog-close><span aria-hidden="true">&times;</span></button>
+</div>
+
+<form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
+  <div class="modal-body" id="modal-body">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let type of formTypes" [value]="type.name" (click)="setFormType(type)">
+          {{ type.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div>
+      <app-form-field formControlName="notes" placeholder="Notes"></app-form-field>
+    </div>
+  </div>
+</form>
+
+<div class="modal-footer" style="justify-content: space-between;">
+  <button type="button" mat-button class="float-left pull-left dismiss" mat-dialog-close>
+    <i class="fa fa-remove" aria-hidden="true"></i> Cancel
+  </button>
+  <button type="button" mat-button class="mat-reverse" (click)="submit()" aria-label="Close">
+    <i class="fa fa-check" aria-hidden="true"></i> Confirm
+  </button>
+</div>

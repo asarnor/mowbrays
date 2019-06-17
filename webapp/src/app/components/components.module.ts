@@ -9,6 +9,7 @@ import { ConfirmationModalComponent } from './modals/confirmation/confirmation-m
 import { LogoutModalComponent } from './modals/logout/logout-modal.component';
 import { FeedbackComponent } from './modals/feedback/feedback.component';
 import { AddCrewModalComponent } from './modals/add-crew/add-crew.component';
+import { AddFormModalComponent } from './modals/add-form/add-form.component';
 
 // Layout
 import { FooterComponent } from './masterpage/footer/footer.component';
@@ -27,7 +28,7 @@ import { CounterComponent } from './counter/counter.component';
 import { UILibModule } from './ui-lib/ui-lib.module';
 
 // Modals include
-const APP_MODALS = [ConfirmationModalComponent, LogoutModalComponent, FeedbackComponent, AddCrewModalComponent];
+const APP_MODALS = [ConfirmationModalComponent, LogoutModalComponent, FeedbackComponent, AddCrewModalComponent, AddFormModalComponent];
 
 // Components to include
 export const APP_COMPONENTS = [

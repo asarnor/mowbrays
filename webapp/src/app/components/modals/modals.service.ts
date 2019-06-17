@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { ConfirmationModalComponent } from './confirmation/confirmation-modal.component';
 import { AddCrewModalComponent } from './add-crew/add-crew.component';
+import { AddFormModalComponent } from './add-form/add-form.component';
 import { LogoutModalComponent } from './logout/logout-modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 
@@ -14,7 +15,12 @@ this.ui.modals.open('ConfirmationModalComponent', false, 'lg', 'Are you sure you
 */
 
 // List modals here by component name
-type modals = 'LogoutModalComponent' | 'ConfirmationModalComponent' | 'FeedbackComponent' | 'AddCrewModalComponent';
+type modals =
+  | 'LogoutModalComponent'
+  | 'ConfirmationModalComponent'
+  | 'FeedbackComponent'
+  | 'AddCrewModalComponent'
+  | 'AddFormModalComponent';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +36,7 @@ export class ModalsService {
     LogoutModalComponent: LogoutModalComponent,
     FeedbackComponent: FeedbackComponent,
     AddCrewModalComponent: AddCrewModalComponent,
+    AddFormModalComponent: AddFormModalComponent,
   };
 
   constructor(public dialog: MatDialog) {}

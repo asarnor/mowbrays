@@ -4,6 +4,10 @@ table {
   width: 100%;
 }
 
+th.mat-sort-header-sorted {
+  color: black;
+}
+
 tr.example-crew-row {
   height: 0;
 }
@@ -46,4 +50,9 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-crew-attribution {
   opacity: 0.5;
+}
+
+span.cta-btn {
+  text-decoration: underline;
+  cursor: pointer;
 }

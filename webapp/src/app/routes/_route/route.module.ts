@@ -15,12 +15,15 @@ import { QuestionSectionComponent } from './components/question-section/question
 import { RouteUiStateQuery, RouteUiStateService, RouteUiStateStore } from './shared/state/ui';
 import { RouteDomainStateService } from './shared/state/domain';
 
+// Datepicker Provider
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 export const storeName = 'route-UIState'; // Change this property to be unique & route specific, IE 'route-UIState' => 'dashboard-UIState'
 
 @NgModule({
   imports: [CommonModule, SiteModule, routing],
   declarations: [RootComponent, UserFormComponent, QuestionSectionComponent, QuestionComponent],
-  providers: [RouteUiStateService, RouteUiStateStore, RouteUiStateQuery, RouteDomainStateService],
+  providers: [RouteUiStateService, RouteUiStateStore, RouteUiStateQuery, RouteDomainStateService, MatDatepickerModule],
   exports: [],
   entryComponents: [],
 })
