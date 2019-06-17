@@ -76,7 +76,7 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
 
   public modifyForm($event: Event) {
     $event.stopPropagation();
-    this.modals.open('AddFormModalComponent', false, 'lg', 60).afterClosed();
+    this.modals.open('SignatureModalComponent', false, 'lg', 60).afterClosed();
   }
 
   public crewForm($event: Event) {

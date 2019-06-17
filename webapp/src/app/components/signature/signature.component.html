@@ -1,0 +1,4 @@
+<div class="signature-component">
+  <button class="clear-button" (click)="clearButton()">Clear</button>
+  <div class="signature-pad"><signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad></div>
+</div>

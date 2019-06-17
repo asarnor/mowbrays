@@ -10,6 +10,7 @@ import { LogoutModalComponent } from './modals/logout/logout-modal.component';
 import { FeedbackComponent } from './modals/feedback/feedback.component';
 import { AddCrewModalComponent } from './modals/add-crew/add-crew.component';
 import { AddFormModalComponent } from './modals/add-form/add-form.component';
+import { SignatureModalComponent } from './modals/signature-modal/signature-modal.component';
 
 // Layout
 import { FooterComponent } from './masterpage/footer/footer.component';
@@ -23,12 +24,20 @@ import { NavSearchComponent } from './masterpage/nav/search/nav-search.component
 import { DomainStateComponent } from './domain-state/domain-state.component';
 import { ErrorComponent } from './error/error.component';
 import { CounterComponent } from './counter/counter.component';
+import { SignatureComponent } from './signature/signature.component';
 
 // Form Tools
 import { UILibModule } from './ui-lib/ui-lib.module';
 
 // Modals include
-const APP_MODALS = [ConfirmationModalComponent, LogoutModalComponent, FeedbackComponent, AddCrewModalComponent, AddFormModalComponent];
+const APP_MODALS = [
+  ConfirmationModalComponent,
+  LogoutModalComponent,
+  FeedbackComponent,
+  AddCrewModalComponent,
+  AddFormModalComponent,
+  SignatureModalComponent,
+];
 
 // Components to include
 export const APP_COMPONENTS = [
@@ -41,6 +50,7 @@ export const APP_COMPONENTS = [
   NavSearchComponent,
   ErrorComponent,
   CounterComponent,
+  SignatureComponent,
   DomainStateComponent,
 ];
 

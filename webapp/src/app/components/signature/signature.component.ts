@@ -14,7 +14,7 @@ export class SignatureComponent implements OnInit, OnDestroy {
   public signaturePadOptions: Object = {
     // passed through to szimek/signature_pad constructor
     minWidth: 5,
-    canvasWidth: 500,
+    canvasWidth: 700,
     canvasHeight: 300,
   };
 
@@ -34,6 +34,10 @@ export class SignatureComponent implements OnInit, OnDestroy {
   drawStart() {
     // will be notified of szimek/signature_pad's onBegin event
     console.log('begin drawing');
+  }
+
+  clearButton() {
+    this.signaturePad.clear();
   }
 
   ngOnInit() {
