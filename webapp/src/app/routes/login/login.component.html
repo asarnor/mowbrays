@@ -8,15 +8,15 @@
         <form [formGroup]="formMain" novalidate (ngSubmit)="onLogin()">
           <div class="card-body">
             <div class="alert alert-warning icon" *ngIf="loggedout">You have successfully logged out.</div>
-            <div class="alert alert-danger icon" *ngIf="errorApi">Unable to log in, please check your username and password</div>
+            <div class="alert alert-danger icon" *ngIf="errorApi">Unable to log in, please check your username and passcode</div>
             <div class="alert alert-danger icon" *ngIf="sessionExpired">Session expired, please log in again.</div>
-            <p>Please enter your username and password.</p>
+            <p>Please enter your username and passcode.</p>
             <div class="form-group row">
               <label for="login" class="col-12 col-md-3 col-form-label">Login</label>
               <div class="col-12 col-md-9"><input class="form-control" type="text" id="login" formControlName="userName" /></div>
             </div>
             <div class="form-group row">
-              <label for="password" class="col-12 col-md-3 col-form-label">Password</label>
+              <label for="password" class="col-12 col-md-3 col-form-label">Passcode</label>
               <div class="col-12 col-md-9"><input class="form-control" type="password" id="password" formControlName="password" /></div>
             </div>
 

@@ -281,33 +281,41 @@ export const HAZARDS = {
   ],
 };
 
-export const WORK_PROCEDURES = [
-  { id: 1, name: 'temporaryTrafficControl', label: 'TemporaryTrafficControl', selected: false, label_s: 'Control de Tráfico Temporal' },
-  { id: 1, name: 'postedroadspeed', label: 'Posted road speed', selected: false, label_s: 'velocidad______mph' },
-  { id: 1, name: 'jobSetup', label: 'Job Setup', selected: false, label_s: 'Configuración de trabajo' },
-  { id: 1, name: 'routineTrimming', label: 'Routine Trimming', selected: false, label_s: 'Recorte de rutina' },
-  { id: 1, name: 'distributionWork', label: 'DistributionWork', selected: false, label_s: 'Trabajo de Distribución' },
-  { id: 1, name: 'transmissionWork', label: 'TransmissionWork', selected: false, label_s: 'Trabajo de transmisión' },
-  { id: 1, name: 'nonConductiveTools', label: 'Non-ConductiveTool(s)', selected: false, label_s: 'Herramientas No Conductivas' },
-  { id: 1, name: 'aerialLift', label: 'Aerial Lift', selected: false, label_s: 'Ascensor aéreo' },
-  { id: 1, name: 'specializedEquipment', label: 'Specialized Equipment', selected: false, label_s: 'Equipo Especializado' },
-  { id: 1, name: 'manualClimbing', label: 'Manual Climbing', selected: false, label_s: 'Escalacion manual' },
-  {
-    id: 1,
-    name: 'buckingandLimbRemoval',
-    label: 'Bucking and Limb Removal',
-    selected: false,
-    label_s: 'Corte de troncos, trozado de ramas',
+export const WORK_PROCEDURES = {
+  labels: {
+    title: 'Work Procedures',
+    title_s: 'Procedimientos de trabajo',
+    subTitle: 'Check All that Apply',
+    subTitle_s: 'Rellena todo lo que corresponda',
   },
-  { id: 1, name: 'spraying', label: 'Spraying', selected: false, label_s: 'Fumigacion' },
-  { id: 1, name: 'draggingBrush', label: 'Dragging Brush', selected: false, label_s: 'Jalado de ramas' },
-  { id: 1, name: 'treeFelling', label: 'Tree Felling', selected: false, label_s: 'Derribo de arboles' },
-  { id: 1, name: 'stormWork', label: 'StormWork', selected: false, label_s: 'Trabajo de tormenta' },
-  { id: 1, name: 'riggingRope', label: 'Rigging/Rope', selected: false, label_s: 'Aparejos y Sogas' },
-  { id: 1, name: 'lifting', label: 'Lifting', selected: false, label_s: 'Levantamiento' },
-  { id: 1, name: 'chippingBrush', label: 'Chipping Brush', selected: false, label_s: 'Trituracion de ramas' },
-  { id: 1, name: 'other', label: 'Other', selected: false, label_s: 'Otro' },
-];
+  data: [
+    { id: 1, name: 'temporaryTrafficControl', label: 'Temporary Traffic Control', selected: false, label_s: 'Control de Tráfico Temporal' },
+    { id: 1, name: 'postedroadspeed', label: 'Posted road speed', selected: false, label_s: 'velocidad______mph' },
+    { id: 1, name: 'jobSetup', label: 'Job Setup', selected: false, label_s: 'Configuración de trabajo' },
+    { id: 1, name: 'routineTrimming', label: 'Routine Trimming', selected: false, label_s: 'Recorte de rutina' },
+    { id: 1, name: 'distributionWork', label: 'Distribution Work', selected: false, label_s: 'Trabajo de Distribución' },
+    { id: 1, name: 'transmissionWork', label: 'Transmission Work', selected: false, label_s: 'Trabajo de transmisión' },
+    { id: 1, name: 'nonConductiveTools', label: 'Non-ConductiveTool(s)', selected: false, label_s: 'Herramientas No Conductivas' },
+    { id: 1, name: 'aerialLift', label: 'Aerial Lift', selected: false, label_s: 'Ascensor aéreo' },
+    { id: 1, name: 'specializedEquipment', label: 'Specialized Equipment', selected: false, label_s: 'Equipo Especializado' },
+    { id: 1, name: 'manualClimbing', label: 'Manual Climbing', selected: false, label_s: 'Escalacion manual' },
+    {
+      id: 1,
+      name: 'buckingandLimbRemoval',
+      label: 'Bucking and Limb Removal',
+      selected: false,
+      label_s: 'Corte de troncos, trozado de ramas',
+    },
+    { id: 1, name: 'spraying', label: 'Spraying', selected: false, label_s: 'Fumigacion' },
+    { id: 1, name: 'draggingBrush', label: 'Dragging Brush', selected: false, label_s: 'Jalado de ramas' },
+    { id: 1, name: 'treeFelling', label: 'Tree Felling', selected: false, label_s: 'Derribo de arboles' },
+    { id: 1, name: 'stormWork', label: 'StormWork', selected: false, label_s: 'Trabajo de tormenta' },
+    { id: 1, name: 'riggingRope', label: 'Rigging/Rope', selected: false, label_s: 'Aparejos y Sogas' },
+    { id: 1, name: 'lifting', label: 'Lifting', selected: false, label_s: 'Levantamiento' },
+    { id: 1, name: 'chippingBrush', label: 'Chipping Brush', selected: false, label_s: 'Trituracion de ramas' },
+    { id: 1, name: 'other', label: 'Other', selected: false, label_s: 'Otro' },
+  ],
+};
 
 export const SPECIAL_PRECAUTIONS = [
   { id: 1, name: 'equipmentSafety', label: 'Equipment Safety', selected: false, label_s: 'Seguridad del equipo' },
@@ -402,4 +410,18 @@ export const REMOVAL_METHOD = [
   { id: 1, name: 'other', label: 'Other', selected: false, label_s: 'Otro' },
 ];
 
-export const Hazards = [{ id: 1, name: 'other', label: 'Other', selected: false, label_s: 'Otro' }];
+export const CREW_AVAILABLE: object[] = [
+  { name: 'Willie Gale', fulltime: true, id: 1 },
+  { name: 'Christopher P. Harris', fulltime: true, id: 2 },
+  { name: 'Derek M. Westcott', fulltime: true, id: 3 },
+  { name: 'Donald C. Archie', fulltime: true, id: 4 },
+  { name: 'Douglas B. House', fulltime: true, id: 5 },
+];
+
+export const CREW_SELECTED: object[] = [
+  { name: 'Devin L. Leslie', fulltime: true, id: 6 },
+  { name: 'Sean K. Wilson', fulltime: true, id: 7 },
+  { name: 'Jordon G. Ibarra', fulltime: true, id: 8 },
+  { name: 'Brian D. Wroblewski', fulltime: true, id: 9 },
+  { name: 'Leslie A. Hazel', fulltime: true, id: 10 },
+];

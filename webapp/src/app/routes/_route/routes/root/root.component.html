@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="{ users: users$ | async } as route">
+<div class="container-fluid root-component " *ngIf="{ users: users$ | async } as route">
   <div>
       <mat-button-toggle 
       [checked]="spanish" 
@@ -7,7 +7,7 @@
     </mat-button-toggle>
     <!-- Tab example with persistant state-->
     <mat-tab-group [selectedIndex]="uiState.query.tabActive$('home') | async" (selectedTabChange)="uiState.tabChange('home', $event)">
-      <mat-tab label="Example">
+      <mat-tab label="Hazards">
         <!-- BEGIN API Example -->
         <nt-domain-state [state]="route.users">
           <div class="p-2">
@@ -35,10 +35,39 @@
         </nt-domain-state>
         <!-- END API Example -->
       </mat-tab>
-      <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab label="Third"> Content 3 </mat-tab>
+      <mat-tab label="Work Proccedures">
+        <!-- BEGIN API Example -->
+        <nt-domain-state [state]="route.users">
+            <div class="p-2">
+              <div class="row">
+                <div class="col col-12 col-md-12">
+                  <app-question-section questionTitle="Select all Work Procedures that apply">
+                    <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
+                      <h1>{{ spanish ? workProcedures.labels.title_s : workProcedures.labels.title }}</h1>
+                      <h2>{{ spanish ? workProcedures.labels.subTitle_s : workProcedures.labels.subTitle }}</h2>
+                      <div formArrayName="workProcedures" *ngFor="let workProcedure of workProcedures.data; let i = index">
+                        <app-form-field
+                          [formControlName]="i"
+                          [placeholder]="spanish ? workProcedure.label_s : workProcedure.label"
+                          type="checkbox"
+                        ></app-form-field>
+                      </div>
+                    </form>
+                  </app-question-section>
+                </div>
+                <!-- <div class="col col-12 col-md-4">
+                  <mat-card> <app-user-form [user]="user"></app-user-form> </mat-card>
+                </div> -->
+              </div>
+            </div>
+          </nt-domain-state>
+          <!-- END API Example -->
+      </mat-tab>
     </mat-tab-group>
 
     <hr />
   </div>
+  <span routerLink="/" title="New Form" class="float">
+      <i class="fa fa-arrow-left my-float"></i>
+    </span>
 </div>

@@ -9,7 +9,7 @@ import { SettingsService } from 'src/app/shared/state/settings';
 // Route State
 import { RouteUiStateService } from '../../shared/state/ui';
 // import { RouteDomainStateService } from '../../shared/state/domain';
-import { HAZARDS } from '../../shared/services/questionaire';
+import { HAZARDS, WORK_PROCEDURES } from '../../shared/services/questionaire';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
@@ -22,6 +22,7 @@ export class RootComponent implements OnInit, OnDestroy {
   public users$ = this.domainState.users.users$;
   public user: Models.User;
   public hazards: any;
+  public workProcedures: any;
   public formMain: FormGroup;
   public spanish: boolean;
 
@@ -35,11 +36,14 @@ export class RootComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
   ) {
     this.hazards = HAZARDS;
+    this.workProcedures = WORK_PROCEDURES;
     this.formMain = this.fb.group({
       hazards: new FormArray([], this.minSelectedCheckboxes(1)),
+      workProcedures: new FormArray([], this.minSelectedCheckboxes(1)),
     });
 
-    this.addCheckboxes();
+    this.addCheckboxes(this.hazards, 'hazards');
+    this.addCheckboxes(this.workProcedures, 'workProcedures');
   }
 
   ngOnInit() {
@@ -76,12 +80,12 @@ export class RootComponent implements OnInit, OnDestroy {
     this.domainState.users.delete(user).subscribe();
   }
 
-  private addCheckboxes() {
-    this.hazards.data.map((o: any, i: number) => {
+  private addCheckboxes(categoryData: any, categoryName: string) {
+    categoryData.data.map((o: any, i: number) => {
       console.log(o);
 
       const control = new FormControl(i === 0); // if first item set to true, else false
-      (this.formMain.controls.hazards as FormArray).push(control);
+      (this.formMain.controls[categoryName] as FormArray).push(control);
     });
   }
 

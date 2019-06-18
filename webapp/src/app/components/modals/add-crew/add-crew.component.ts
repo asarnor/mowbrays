@@ -1,9 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl } from '@angular/forms';
+import { CREW_SELECTED, CREW_AVAILABLE } from 'src/app/routes/_route/shared/services/questionaire';
 
 @Component({
   selector: 'app-add-crew-modal',
+  styleUrls: ['./add-crew-modal.component.scss'],
   templateUrl: './add-crew-modal.component.html',
 })
 export class AddCrewModalComponent {
@@ -13,12 +15,8 @@ export class AddCrewModalComponent {
     @Inject(MAT_DIALOG_DATA) public dataAlt: any,
   ) {}
   myControl = new FormControl();
-  public crewAvailable: object[] = [
-    { name: 'jimmy', fulltime: true, id: 1 },
-    { name: 'timmy', fulltime: true, id: 2 },
-    { name: 'stan', fulltime: true, id: 3 },
-  ];
-  public crewSelected: object[] = [{ name: 'bob', fulltime: true, id: 4 }];
+  public crewAvailable: object[] = CREW_AVAILABLE;
+  public crewSelected: object[] = CREW_SELECTED;
 
   /**
    * Submit the form

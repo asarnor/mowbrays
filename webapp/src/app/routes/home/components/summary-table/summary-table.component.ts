@@ -3,6 +3,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ModalsService } from '$modals';
+import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 
 export interface JobBriefSummary {
   address: string;
@@ -10,17 +11,33 @@ export interface JobBriefSummary {
   foreman: string;
   signed: boolean;
   forms: string[];
+  view: string;
 }
 
 const ELEMENT_DATA: JobBriefSummary[] = [
-  { date: '1/14/2019', address: '7511 Columbia St. El Paso, TX 79930', foreman: 'Willie Gale', signed: true, forms: ['hazards'] },
-  { date: '2/14/2019', address: '9395 Circle St. Tacoma, WA 98444', foreman: 'Christopher P. Harris', signed: true, forms: ['hazards'] },
+  {
+    date: '1/14/2019',
+    address: '7511 Columbia St. El Paso, TX 79930',
+    foreman: 'Willie Gale',
+    signed: true,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
+  {
+    date: '2/14/2019',
+    address: '9395 Circle St. Tacoma, WA 98444',
+    foreman: 'Christopher P. Harris',
+    signed: true,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
   {
     date: '3/15/2019',
     address: '7348 North East Ave. Knoxville, TN 37918',
     foreman: 'Derek M. Westcott',
     signed: true,
     forms: ['hazards'],
+    view: 'Job Briefing',
   },
   {
     date: '3/22/2019',
@@ -28,18 +45,55 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     foreman: 'Donald C. Archie',
     signed: true,
     forms: ['hazards'],
+    view: 'Job Briefing',
   },
-  { date: '4/1/2019', address: '9676 Fairway Road Oak Forest, IL 60452', foreman: 'Douglas B. House', signed: false, forms: ['hazards'] },
-  { date: '4/2/2019', address: '7579 Glendale Drive Billerica, MA 01821', foreman: 'Devin L. Leslie', signed: true, forms: ['hazards'] },
-  { date: '4/12/2019', address: '821 Devonshire Dr. Loxahatchee, FL 33470', foreman: 'Sean K. Wilson', signed: true, forms: ['hazards'] },
-  { date: '4/24/2019', address: '421 Bridle St. Royersford, PA 19468', foreman: 'Jordon G. Ibarra', signed: true, forms: ['hazards'] },
-  { date: '6/21/2019', address: '515 E. Sage St. La Porte, IN 46350', foreman: 'Brian D. Wroblewski', signed: true, forms: ['hazards'] },
+  {
+    date: '4/1/2019',
+    address: '9676 Fairway Road Oak Forest, IL 60452',
+    foreman: 'Douglas B. House',
+    signed: false,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
+  {
+    date: '4/2/2019',
+    address: '7579 Glendale Drive Billerica, MA 01821',
+    foreman: 'Devin L. Leslie',
+    signed: true,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
+  {
+    date: '4/12/2019',
+    address: '821 Devonshire Dr. Loxahatchee, FL 33470',
+    foreman: 'Sean K. Wilson',
+    signed: true,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
+  {
+    date: '4/24/2019',
+    address: '421 Bridle St. Royersford, PA 19468',
+    foreman: 'Jordon G. Ibarra',
+    signed: true,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
+  {
+    date: '6/21/2019',
+    address: '515 E. Sage St. La Porte, IN 46350',
+    foreman: 'Brian D. Wroblewski',
+    signed: true,
+    forms: ['hazards'],
+    view: 'Job Briefing',
+  },
   {
     date: '6/24/2019',
     address: '8187 Plumb Branch Drive Garden City, NY 11530',
     foreman: 'Leslie A. Hazel',
     signed: false,
     forms: ['hazards'],
+    view: 'Job Briefing',
   },
 ];
 
@@ -57,9 +111,10 @@ const ELEMENT_DATA: JobBriefSummary[] = [
   ],
 })
 export class SummaryTableComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['address', 'date', 'foreman', 'signed', 'modify', 'crew'];
+  public displayedColumns: string[] = ['address', 'date', 'foreman', 'signed', 'modify', 'view'];
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
+  public crewSelected: any = CREW_SELECTED;
   constructor(private modals: ModalsService) {}
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -75,6 +130,11 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
   }
 
   public modifyForm($event: Event) {
+    $event.stopPropagation();
+    this.modals.open('AddFormModalComponent', false, 'lg', 60).afterClosed();
+  }
+
+  public signatureForm($event: Event) {
     $event.stopPropagation();
     this.modals.open('SignatureModalComponent', false, 'lg', 60).afterClosed();
   }

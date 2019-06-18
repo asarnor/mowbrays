@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import {SignatureComponent} from '../../../components/signature/signature.component';
 
 @Component({
   selector: 'app-signature-modal',
@@ -12,7 +11,7 @@ export class SignatureModalComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     @Inject(MAT_DIALOG_DATA) public dataAlt: any,
   ) {}
-  
+
   /**
    * Submit the form
    */
