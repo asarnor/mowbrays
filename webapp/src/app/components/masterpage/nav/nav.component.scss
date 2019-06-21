@@ -9,23 +9,23 @@
 #navbar-main {
   .navbar-nav > .nav-item .nav-link,
   .form-inline > a:not([href]):not([tabindex]) {
-    color: #8f9daf;
+    color: #203f75;
     font-size: 0.75rem;
     font-weight: bold;
     padding-bottom: 0.75rem;
     padding-top: 0.9rem;
     &.active {
-      border-bottom: 2px solid $interact-primary;
+      border-bottom: 2px solid #df363d;
       .fa {
-        color: $interact-primary;
+        color: #203f75;
       }
     }
   }
   #navbar-main .link {
-    color: #8f9daf;
+    color: #203f75;
   }
   .navbar-toggler {
-    color: #8f9daf;
+    color: #203f75;
     font-size: 1.1rem;
     top: 0.75rem;
   }
