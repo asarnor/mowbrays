@@ -8,14 +8,19 @@
     <ng-container matColumnDef="{{ column }}" *ngFor="let column of displayedColumns">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column }}</th>
       <td mat-cell *matCellDef="let element">
-        <div *ngIf="column !== 'signed' && column !== 'view'">{{ element[column] }}</div>
-        <ng-container *ngIf="column === 'signed'">
-          <span class="cta-btn" (click)="signatureForm($event)">{{ element[column] }}</span>
+        <div *ngIf="column !== 'Signed' && column !== 'View'">{{ element[column] }}</div>
+        <ng-container *ngIf="column === 'Signed'">
+          <a class="cta-btn" (click)="signatureForm($event)">
+            <i class="fa fa-check green fa-lg" aria-hidden="true" *ngIf="element[column]"></i>
+            <i class="fa fa-times red fa-lg" aria-hidden="true" *ngIf="!element[column]"></i>
+          </a>
         </ng-container>
-        <ng-container *ngIf="column === 'modify'"><span class="cta-btn" (click)="modifyForm($event)">Modify</span></ng-container>
-        <ng-container *ngIf="column === 'view'"
-          ><span class="cta-btn" routerLink="route">{{ element[column] }}</span></ng-container
-        >
+        <ng-container *ngIf="column === 'Modify'">
+          <a class="cta-btn" (click)="modifyForm($event)"> <i class="fa fa-gear" aria-hidden="true"></i> Modify</a>
+          </ng-container>
+        <ng-container *ngIf="column === 'View'">
+          <a class="cta-btn" routerLink="route"> <i class="fa fa-eye" aria-hidden="true"></i> {{ element[column] }}</a>
+        </ng-container>
       </td>
     </ng-container>
 
@@ -26,7 +31,7 @@
           <div class="example-element-diagram">
             <strong>CREW: </strong>&nbsp;
             <div *ngFor="let crew of crewSelected">{{ crew.name }}, &nbsp;</div>
-            <strong><span class="example-element-crew-attribution cta-btn" (click)="crewForm($event)">Edit</span></strong>
+            <strong><a class="example-element-crew-attribution cta-btn" (click)="crewForm($event)">Edit</a></strong>
           </div>
         </div>
       </td>
@@ -41,9 +46,8 @@
       (click)="expandedElement = expandedElement === element ? null : element"
     ></tr>
     <ng-container *ngIf="true">
-        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-crew-row"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-crew-row"></tr>
     </ng-container>
-    
   </table>
 
   <span href="" (click)="modifyForm($event)" title="New Form" class="float">
