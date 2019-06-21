@@ -9,7 +9,7 @@
     width: 100%;
 
     tr.mat-row {
-      height: 60px;
+      // height: 60px;
     }
 
     td {
@@ -32,11 +32,12 @@
 
   tr.example-crew-row {
     height: 0;
+    background: #f1f1f1;
   }
 
   tr.example-element-row:not(.example-expanded-row):hover {
     cursor: pointer;
-    background: #777;
+    background: #efefef;
   }
 
   tr.example-element-row:not(.example-expanded-row):active {
@@ -71,7 +72,7 @@
   }
 
   .example-element-crew {
-    padding: 16px;
+    // padding: 16px;
   }
 
   .example-element-crew-attribution {
