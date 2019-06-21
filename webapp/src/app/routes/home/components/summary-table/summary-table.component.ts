@@ -6,94 +6,94 @@ import { ModalsService } from '$modals';
 import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 
 export interface JobBriefSummary {
-  address: string;
-  date: string;
-  foreman: string;
-  signed: boolean;
-  forms: string[];
-  view: string;
+  Address: string;
+  Date: string;
+  Foreman: string;
+  Signed: boolean;
+  Forms: string[];
+  View: string;
 }
 
 const ELEMENT_DATA: JobBriefSummary[] = [
   {
-    date: '1/14/2019',
-    address: '7511 Columbia St. El Paso, TX 79930',
-    foreman: 'Willie Gale',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '1/14/2019',
+    Address: '7511 Columbia St. El Paso, TX 79930',
+    Foreman: 'Willie Gale',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '2/14/2019',
-    address: '9395 Circle St. Tacoma, WA 98444',
-    foreman: 'Christopher P. Harris',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '2/14/2019',
+    Address: '9395 Circle St. Tacoma, WA 98444',
+    Foreman: 'Christopher P. Harris',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '3/15/2019',
-    address: '7348 North East Ave. Knoxville, TN 37918',
-    foreman: 'Derek M. Westcott',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '3/15/2019',
+    Address: '7348 North East Ave. Knoxville, TN 37918',
+    Foreman: 'Derek M. Westcott',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '3/22/2019',
-    address: '7303 Winchester Drive Northbrook, IL 60062',
-    foreman: 'Donald C. Archie',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '3/22/2019',
+    Address: '7303 Winchester Drive Northbrook, IL 60062',
+    Foreman: 'Donald C. Archie',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '4/1/2019',
-    address: '9676 Fairway Road Oak Forest, IL 60452',
-    foreman: 'Douglas B. House',
-    signed: false,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '4/1/2019',
+    Address: '9676 Fairway Road Oak Forest, IL 60452',
+    Foreman: 'Douglas B. House',
+    Signed: false,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '4/2/2019',
-    address: '7579 Glendale Drive Billerica, MA 01821',
-    foreman: 'Devin L. Leslie',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '4/2/2019',
+    Address: '7579 Glendale Drive Billerica, MA 01821',
+    Foreman: 'Devin L. Leslie',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '4/12/2019',
-    address: '821 Devonshire Dr. Loxahatchee, FL 33470',
-    foreman: 'Sean K. Wilson',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '4/12/2019',
+    Address: '821 Devonshire Dr. Loxahatchee, FL 33470',
+    Foreman: 'Sean K. Wilson',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '4/24/2019',
-    address: '421 Bridle St. Royersford, PA 19468',
-    foreman: 'Jordon G. Ibarra',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '4/24/2019',
+    Address: '421 Bridle St. Royersford, PA 19468',
+    Foreman: 'Jordon G. Ibarra',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '6/21/2019',
-    address: '515 E. Sage St. La Porte, IN 46350',
-    foreman: 'Brian D. Wroblewski',
-    signed: true,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '6/21/2019',
+    Address: '515 E. Sage St. La Porte, IN 46350',
+    Foreman: 'Brian D. Wroblewski',
+    Signed: true,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
   {
-    date: '6/24/2019',
-    address: '8187 Plumb Branch Drive Garden City, NY 11530',
-    foreman: 'Leslie A. Hazel',
-    signed: false,
-    forms: ['hazards'],
-    view: 'Job Briefing',
+    Date: '6/24/2019',
+    Address: '8187 Plumb Branch Drive Garden City, NY 11530',
+    Foreman: 'Leslie A. Hazel',
+    Signed: false,
+    Forms: ['hazards'],
+    View: 'Job Briefing',
   },
 ];
 
@@ -111,7 +111,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
   ],
 })
 export class SummaryTableComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['address', 'date', 'foreman', 'signed', 'modify', 'view'];
+  public displayedColumns: string[] = ['Address', 'Date', 'Foreman', 'Signed', 'Modify', 'View'];
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
   public crewSelected: any = CREW_SELECTED;
