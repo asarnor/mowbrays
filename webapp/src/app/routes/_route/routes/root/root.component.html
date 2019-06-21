@@ -1,73 +1,74 @@
 <div class="container-fluid root-component " *ngIf="{ users: users$ | async } as route">
-  <div>
-      <mat-button-toggle 
-      [checked]="spanish" 
-      (change)="spanish = $event.source.checked">
-        Spanish
-    </mat-button-toggle>
-    <!-- Tab example with persistant state-->
-    <mat-tab-group [selectedIndex]="uiState.query.tabActive$('home') | async" (selectedTabChange)="uiState.tabChange('home', $event)">
-      <mat-tab label="Hazards">
-        <!-- BEGIN API Example -->
-        <nt-domain-state [state]="route.users">
-          <div class="p-2">
-            <div class="row">
-              <div class="col col-12 col-md-12">
-                <app-question-section questionTitle="Select all hazards that apply">
-                  <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
-                    <h1>{{ spanish ? hazards.labels.title_s : hazards.labels.title }}</h1>
-                    <h2>{{ spanish ? hazards.labels.subTitle_s : hazards.labels.subTitle }}</h2>
-                    <div formArrayName="hazards" *ngFor="let hazard of hazards.data; let i = index">
-                      <app-form-field
-                        [formControlName]="i"
-                        [placeholder]="spanish ? hazard.label_s : hazard.label"
-                        type="checkbox"
-                      ></app-form-field>
-                    </div>
-                  </form>
-                </app-question-section>
-              </div>
-              <!-- <div class="col col-12 col-md-4">
+  <div style="position:absolute;right:20px;">
+    <button mat-button class="btn-mowbray float-right" (click)="spanish = true" *ngIf="!spanish">
+      Español
+    </button>
+    <button mat-button class="btn-mowbray float-right" (click)="spanish = false" *ngIf="spanish">
+      English
+    </button>
+  </div>
+  <!-- Tab example with persistant state-->
+  <mat-tab-group [selectedIndex]="uiState.query.tabActive$('home') | async" (selectedTabChange)="uiState.tabChange('home', $event)">
+    <mat-tab label="Hazards">
+      <!-- BEGIN API Example -->
+      <nt-domain-state [state]="route.users">
+        <div class="p-2">
+          <div class="row">
+            <div class="col col-12 col-md-12">
+              <app-question-section questionTitle="Select all hazards that apply">
+                <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
+                  <h1>{{ spanish ? hazards.labels.title_s : hazards.labels.title }}</h1>
+                  <h2>{{ spanish ? hazards.labels.subTitle_s : hazards.labels.subTitle }}</h2>
+                  <div formArrayName="hazards" *ngFor="let hazard of hazards.data; let i = index">
+                    <app-form-field
+                      [formControlName]="i"
+                      [placeholder]="spanish ? hazard.label_s : hazard.label"
+                      type="checkbox"
+                    ></app-form-field>
+                  </div>
+                </form>
+              </app-question-section>
+            </div>
+            <!-- <div class="col col-12 col-md-4">
                 <mat-card> <app-user-form [user]="user"></app-user-form> </mat-card>
               </div> -->
-            </div>
           </div>
-        </nt-domain-state>
-        <!-- END API Example -->
-      </mat-tab>
-      <mat-tab label="Work Proccedures">
-        <!-- BEGIN API Example -->
-        <nt-domain-state [state]="route.users">
-            <div class="p-2">
-              <div class="row">
-                <div class="col col-12 col-md-12">
-                  <app-question-section questionTitle="Select all Work Procedures that apply">
-                    <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
-                      <h1>{{ spanish ? workProcedures.labels.title_s : workProcedures.labels.title }}</h1>
-                      <h2>{{ spanish ? workProcedures.labels.subTitle_s : workProcedures.labels.subTitle }}</h2>
-                      <div formArrayName="workProcedures" *ngFor="let workProcedure of workProcedures.data; let i = index">
-                        <app-form-field
-                          [formControlName]="i"
-                          [placeholder]="spanish ? workProcedure.label_s : workProcedure.label"
-                          type="checkbox"
-                        ></app-form-field>
-                      </div>
-                    </form>
-                  </app-question-section>
-                </div>
-                <!-- <div class="col col-12 col-md-4">
+        </div>
+      </nt-domain-state>
+      <!-- END API Example -->
+    </mat-tab>
+    <mat-tab label="Work Proccedures">
+      <!-- BEGIN API Example -->
+      <nt-domain-state [state]="route.users">
+        <div class="p-2">
+          <div class="row">
+            <div class="col col-12 col-md-12">
+              <app-question-section questionTitle="Select all Work Procedures that apply">
+                <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
+                  <h1>{{ spanish ? workProcedures.labels.title_s : workProcedures.labels.title }}</h1>
+                  <h2>{{ spanish ? workProcedures.labels.subTitle_s : workProcedures.labels.subTitle }}</h2>
+                  <div formArrayName="workProcedures" *ngFor="let workProcedure of workProcedures.data; let i = index">
+                    <app-form-field
+                      [formControlName]="i"
+                      [placeholder]="spanish ? workProcedure.label_s : workProcedure.label"
+                      type="checkbox"
+                    ></app-form-field>
+                  </div>
+                </form>
+              </app-question-section>
+            </div>
+            <!-- <div class="col col-12 col-md-4">
                   <mat-card> <app-user-form [user]="user"></app-user-form> </mat-card>
                 </div> -->
-              </div>
-            </div>
-          </nt-domain-state>
-          <!-- END API Example -->
-      </mat-tab>
-    </mat-tab-group>
+          </div>
+        </div>
+      </nt-domain-state>
+      <!-- END API Example -->
+    </mat-tab>
+  </mat-tab-group>
 
-    <hr />
-  </div>
+  <hr />
   <span routerLink="/" title="New Form" class="float">
-      <i class="fa fa-arrow-left my-float"></i>
-    </span>
+    <i class="fa fa-arrow-left my-float"></i>
+  </span>
 </div>

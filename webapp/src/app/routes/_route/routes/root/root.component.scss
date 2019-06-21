@@ -1,6 +1,7 @@
 /* Include site variables and mixins */
 @import '../../../../../styles/globals';
 .root-component {
+  position:relative;
   .my-float {
     margin-top: 22px;
   }
@@ -19,4 +20,11 @@
     box-shadow: 2px 2px 3px #999;
     z-index: 10;
   }
+}
+.btn-mowbray {
+  background-color: #df363d!important;
+  background-image:none!important;
+  color: #ffffff !important;
+  padding: 4px 10px;
+  border-radius: 25px;
 }
