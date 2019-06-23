@@ -419,9 +419,9 @@ export const CREW_AVAILABLE: object[] = [
 ];
 
 export const CREW_SELECTED: object[] = [
-  { name: 'Devin L. Leslie', fulltime: true, id: 6 },
-  { name: 'Sean K. Wilson', fulltime: true, id: 7 },
-  { name: 'Jordon G. Ibarra', fulltime: true, id: 8 },
-  { name: 'Brian D. Wroblewski', fulltime: true, id: 9 },
-  { name: 'Leslie A. Hazel', fulltime: true, id: 10 },
+  { name: 'Devin L. Leslie', fulltime: true, signed: true, id: 6 },
+  { name: 'Sean K. Wilson', fulltime: true, signed: true, id: 7 },
+  { name: 'Jordon G. Ibarra', fulltime: true, signed: false, id: 8 },
+  { name: 'Brian D. Wroblewski', fulltime: true, signed: false, id: 9 },
+  { name: 'Leslie A. Hazel', fulltime: true, signed: true, id: 10 },
 ];

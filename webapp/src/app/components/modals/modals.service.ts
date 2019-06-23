@@ -7,7 +7,8 @@ import { AddCrewModalComponent } from './add-crew/add-crew.component'; //
 import { AddFormModalComponent } from './add-form/add-form.component';
 import { SignatureModalComponent } from './signature-modal/signature-modal.component';
 import { LogoutModalComponent } from './logout/logout-modal.component';
-import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackComponent } from './feedback/feedback.component';// 
+import { SummaryViewerModalComponent } from './summary-viewer/summary-viewer-modal.component'; //
 
 /** Sample Usage:
 this.ui.modals.open('ConfirmationModalComponent', false, 'lg', 'Are you sure you want to delete this user?', 'Delete User').result.then(
@@ -22,6 +23,7 @@ type modals =
   | 'FeedbackComponent'
   | 'AddCrewModalComponent'
   | 'SignatureModalComponent'
+  | 'SummaryViewerModalComponent'
   | 'AddFormModalComponent';
 
 @Injectable({
@@ -40,6 +42,7 @@ export class ModalsService {
     AddCrewModalComponent: AddCrewModalComponent,
     AddFormModalComponent: AddFormModalComponent,
     SignatureModalComponent: SignatureModalComponent,
+    SummaryViewerModalComponent: SummaryViewerModalComponent,
   };
 
   constructor(public dialog: MatDialog) {}

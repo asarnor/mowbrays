@@ -111,7 +111,7 @@ const ELEMENT_DATA: JobBriefSummary[] = [
   ],
 })
 export class SummaryTableComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['Address', 'Date', 'Foreman', 'Signed', 'Modify', 'View'];
+  public displayedColumns: string[] = ['Address', 'Date', 'Foreman', 'Signed', 'Modify', 'View', 'Summary'];
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
   public crewSelected: any = CREW_SELECTED;
@@ -131,7 +131,20 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
 
   public modifyForm($event: Event) {
     $event.stopPropagation();
-    this.modals.open('AddFormModalComponent', false, 'lg', 60).afterClosed();
+    this.modals.open('AddFormModalComponent', false, 'lg', 'Modify Form').afterClosed();
+  }
+
+  public addForm($event: Event) {
+    $event.stopPropagation();
+    this.modals
+      .open('AddFormModalComponent', false, 'lg', false)
+      .afterClosed()
+      .subscribe(value => {
+        console.log(`Dialog sent: ${value}`);
+        if (value !== undefined) {
+          this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+        }
+      });
   }
 
   public signatureForm($event: Event) {
@@ -142,6 +155,11 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
   public crewForm($event: Event) {
     $event.stopPropagation();
     this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+  }
+
+  public summaryForm($event: Event) {
+    $event.stopPropagation();
+    this.modals.open('SummaryViewerModalComponent', false, 'xl', 60).afterClosed();
   }
 
   /** Must be present even if not used for autounsub */

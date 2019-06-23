@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NtPipesModule } from '@ntersol-ui/pipes';
 import { MatTableModule } from '@angular/material/table';
 import { SignaturePadModule } from 'angular2-signaturepad';
+import { ImageViewerModule } from 'ng2-image-viewer';
 
 import {
   MatIconModule,
@@ -52,6 +53,7 @@ const modules = [
   MatTableModule,
   SignaturePadModule,
   MatSortModule,
+  ImageViewerModule,
 ];
 
 @NgModule({
