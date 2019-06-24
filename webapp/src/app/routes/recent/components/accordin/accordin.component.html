@@ -1,4 +1,4 @@
-<div class="container-fluid root-component">
+<div class="container-fluid accordin-component">
   <mat-accordion #accordion="matAccordion" multi="false">
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
@@ -118,6 +118,6 @@
   </mat-accordion>
   <hr />
   <span routerLink="/" title="New Form" class="float">
-    <i class="fa fa-arrow-left my-float"></i>
+    <i class="fa fa-plus my-float"></i><span>New Form</span>
   </span>
 </div>

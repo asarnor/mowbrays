@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from '@angular/core';
 import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 import { ModalsService } from '$modals';
-import {MatAccordion} from '@angular/material';
+import { MatAccordion } from '@angular/material';
 
 export interface JobBriefSummary {
   Address: string;
@@ -47,7 +47,7 @@ const ELEMENT_DATA2: JobBriefSummary[] = [
     Signed: true,
     Forms: ['hazards'],
     View: 'Job Briefing',
-  }
+  },
 ];
 
 const ELEMENT_DATA3: JobBriefSummary[] = [
@@ -73,7 +73,7 @@ export class AccordinComponent implements OnInit, OnDestroy {
   public dataSource2 = ELEMENT_DATA2;
   public dataSource3 = ELEMENT_DATA3;
   public crewMembers = CREW_SELECTED;
-  
+
   @ViewChild('accordion', { static: true }) Accordion: MatAccordion;
 
   constructor(private modals: ModalsService) {}

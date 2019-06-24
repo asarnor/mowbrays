@@ -24,7 +24,6 @@
         <ng-container *ngIf="column === 'Summary'">
           <a class="cta-btn" (click)="summaryForm($event)"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
         </ng-container>
-        
       </td>
     </ng-container>
 
@@ -33,15 +32,18 @@
       <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
         <div class="example-element-crew" [@crewExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
           <div class="example-element-diagram">
-            
-            <strong>Crew Members: &nbsp;<span> <u class="green">Signed:</u> &nbsp;</span></strong>
+            <strong
+              >Crew Members: &nbsp;<span> <u class="green">Signed:</u> &nbsp;</span></strong
+            >
             <ng-container *ngFor="let crew of crewSelected">
               <div *ngIf="crew.signed">
                 {{ crew.name }}
                 &nbsp; &nbsp;
               </div>
             </ng-container>
-            <strong><span><u class="red">NOT Signed:</u> &nbsp;</span></strong>
+            <strong
+              ><span><u class="red">NOT Signed:</u> &nbsp;</span></strong
+            >
             <ng-container *ngFor="let crew of crewSelected">
               <div *ngIf="!crew.signed">
                 {{ crew.name }}
