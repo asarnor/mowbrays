@@ -15,7 +15,7 @@
             <div class="p-2">
               <div class="row">
                 <div class="col col-12 col-md-12">
-                  <app-question-section questionTitle="Fill out all that apply">
+                  <app-question-section questionTitle="Fill out all required">
                     <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
                       <h1>{{ spanish ? emergencyProcedures.labels.title_s : emergencyProcedures.labels.title }}</h1>
                       <h2>{{ spanish ? emergencyProcedures.labels.subTitle_s : emergencyProcedures.labels.subTitle }}</h2>

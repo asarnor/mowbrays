@@ -6,6 +6,11 @@
     margin-top: 22px;
   }
 
+  form {
+    max-height: 60vh;
+    overflow: auto;
+  }
+
   .mat-step-header {
     overflow: visible;
     display: none !important;
