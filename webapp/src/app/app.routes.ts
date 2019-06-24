@@ -45,6 +45,14 @@ export const ROUTES: Routes = [
       // { path: 'users/:empowerGuid', loadChildren: './routes/users/users.module#UsersModule', canActivate: [AuthGuard] },
       // { path: 'users', loadChildren: './routes/users/users.module#UsersModule', canActivate: [AuthGuard] },
 
+      // Empty path string for recent ('') needs to be LAST otherwise it catches all other routes
+      {
+        path: 'recent',
+        pathMatch: 'full',
+        loadChildren: () => import('./routes/recent/recent.module').then(m => m.RecentModule),
+        canActivate: [AuthGuard],
+      },
+
       // Empty path string for homepage ('') needs to be LAST otherwise it catches all other routes
       {
         path: 'route',
