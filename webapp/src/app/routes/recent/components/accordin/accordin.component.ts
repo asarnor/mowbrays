@@ -1,9 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ModalsService } from '$modals';
 import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
+import { ModalsService } from '$modals';
+import { MatAccordion } from '@angular/material';
 import { Router } from '@angular/router';
 
 export interface JobBriefSummary {
@@ -32,6 +30,9 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     Forms: ['hazards'],
     View: 'Job Briefing',
   },
+];
+
+const ELEMENT_DATA2: JobBriefSummary[] = [
   {
     Date: '3/15/2019',
     Address: '7348 North East Ave. Knoxville, TN 37918',
@@ -48,46 +49,9 @@ const ELEMENT_DATA: JobBriefSummary[] = [
     Forms: ['hazards'],
     View: 'Job Briefing',
   },
-  {
-    Date: '4/1/2019',
-    Address: '9676 Fairway Road Oak Forest, IL 60452',
-    Foreman: 'Douglas B. House',
-    Signed: false,
-    Forms: ['hazards'],
-    View: 'Job Briefing',
-  },
-  {
-    Date: '4/2/2019',
-    Address: '7579 Glendale Drive Billerica, MA 01821',
-    Foreman: 'Devin L. Leslie',
-    Signed: true,
-    Forms: ['hazards'],
-    View: 'Job Briefing',
-  },
-  {
-    Date: '4/12/2019',
-    Address: '821 Devonshire Dr. Loxahatchee, FL 33470',
-    Foreman: 'Sean K. Wilson',
-    Signed: true,
-    Forms: ['hazards'],
-    View: 'Job Briefing',
-  },
-  {
-    Date: '4/24/2019',
-    Address: '421 Bridle St. Royersford, PA 19468',
-    Foreman: 'Jordon G. Ibarra',
-    Signed: true,
-    Forms: ['hazards'],
-    View: 'Job Briefing',
-  },
-  {
-    Date: '6/21/2019',
-    Address: '515 E. Sage St. La Porte, IN 46350',
-    Foreman: 'Brian D. Wroblewski',
-    Signed: true,
-    Forms: ['hazards'],
-    View: 'Job Briefing',
-  },
+];
+
+const ELEMENT_DATA3: JobBriefSummary[] = [
   {
     Date: '6/24/2019',
     Address: '8187 Plumb Branch Drive Garden City, NY 11530',
@@ -99,36 +63,21 @@ const ELEMENT_DATA: JobBriefSummary[] = [
 ];
 
 @Component({
-  selector: 'app-summary-table',
-  templateUrl: './summary-table.component.html',
-  styleUrls: ['./summary-table.component.scss'],
+  selector: 'app-accordin',
+  templateUrl: './accordin.component.html',
+  styleUrls: ['./accordin.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('crewExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 })
-export class SummaryTableComponent implements OnInit, OnDestroy {
-  public displayedColumns: string[] = ['Address', 'Date', 'Foreman', 'Signed', 'Modify', 'View', 'Summary'];
-  public dataSource = new MatTableDataSource(ELEMENT_DATA);
-  public expandedElement: JobBriefSummary | null;
-  public crewSelected: any = CREW_SELECTED;
+export class AccordinComponent implements OnInit, OnDestroy {
+  public panelOpenState: Boolean = true;
+  public dataSource = ELEMENT_DATA;
+  public dataSource2 = ELEMENT_DATA2;
+  public dataSource3 = ELEMENT_DATA3;
+  public crewMembers = CREW_SELECTED;
+
+  @ViewChild('accordion', { static: true }) Accordion: MatAccordion;
+
   constructor(private modals: ModalsService, private router: Router) {}
-
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
-  ngOnInit() {
-    // Open log out modal window
-    // this.modals.open('AddFormModalComponent', false, 'lg', 60).afterClosed();
-    this.dataSource.sort = this.sort;
-  }
-
-  public applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 
   public modifyForm($event: Event) {
     $event.stopPropagation();
@@ -173,6 +122,11 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
   public summaryForm($event: Event) {
     $event.stopPropagation();
     this.modals.open('SummaryViewerModalComponent', false, 'xl', 60).afterClosed();
+  }
+
+  ngOnInit() {
+    console.log('accordin');
+    // this.Accordion.openAll();
   }
 
   /** Must be present even if not used for autounsub */

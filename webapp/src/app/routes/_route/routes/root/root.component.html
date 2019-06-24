@@ -1,5 +1,5 @@
 <div class="container-fluid root-component " *ngIf="{ users: users$ | async } as route">
-  <div style="position:absolute;right:20px;">
+  <div style="right:20px;">
     <button mat-button class="btn-mowbray float-right" (click)="spanish = true" *ngIf="!spanish">
       Español
     </button>
@@ -8,8 +8,37 @@
     </button>
   </div>
   <!-- Tab example with persistant state-->
-  <mat-tab-group [selectedIndex]="uiState.query.tabActive$('home') | async" (selectedTabChange)="uiState.tabChange('home', $event)">
-    <mat-tab label="Hazards">
+  <mat-horizontal-stepper [selectedIndex]="uiState.query.tabActive$('home') | async" (selectedTabChange)="uiState.tabChange('home', $event)" #stepper>
+      <mat-step label="Emergency Procedures">
+          <!-- BEGIN API Example -->
+          <nt-domain-state [state]="route.users">
+            <div class="p-2">
+              <div class="row">
+                <div class="col col-12 col-md-12">
+                  <app-question-section questionTitle="Fill out all required">
+                    <form [formGroup]="formMain" novalidate (ngSubmit)="userSubmit()">
+                      <h1>{{ spanish ? emergencyProcedures.labels.title_s : emergencyProcedures.labels.title }}</h1>
+                      <h2>{{ spanish ? emergencyProcedures.labels.subTitle_s : emergencyProcedures.labels.subTitle }}</h2>
+                      <div formArrayName="emergencyProcedures" *ngFor="let emergencyProcedure of emergencyProcedures.data; let i = index">
+                        <app-form-field
+                          [formControlName]="i"
+                          [placeholder]="spanish ? emergencyProcedure.label_s : emergencyProcedure.label"
+                          [type]="emergencyProcedure.type"
+                        ></app-form-field>
+                      </div>
+                    </form>
+                  </app-question-section>
+                </div>
+              </div>
+            </div>
+          </nt-domain-state>
+          <div class="button-section">
+              <button mat-button matStepperNext>Next</button>
+          </div>
+         
+          <!-- END API Example -->
+        </mat-step>
+    <mat-step label="Hazards">
       <!-- BEGIN API Example -->
       <nt-domain-state [state]="route.users">
         <div class="p-2">
@@ -35,9 +64,14 @@
           </div>
         </div>
       </nt-domain-state>
+      <div class="button-section">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+      </div>
+      
       <!-- END API Example -->
-    </mat-tab>
-    <mat-tab label="Work Proccedures">
+    </mat-step>
+    <mat-step label="Work Proccedures">
       <!-- BEGIN API Example -->
       <nt-domain-state [state]="route.users">
         <div class="p-2">
@@ -63,9 +97,36 @@
           </div>
         </div>
       </nt-domain-state>
+      <div class="button-section">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Sign</button>
+      </div>
+      
       <!-- END API Example -->
-    </mat-tab>
-  </mat-tab-group>
+    </mat-step>
+    <mat-step label="Signature">
+        <!-- BEGIN API Example -->
+        <nt-domain-state [state]="route.users">
+          <div class="p-2">
+            <div class="row">
+              <div class="col col-12 col-md-12">
+                  <h1>{{ spanish ? signatures.labels.title_s : signatures.labels.title }}</h1>
+                <app-signature></app-signature>
+              </div>
+              <!-- <div class="col col-12 col-md-4">
+                    <mat-card> <app-user-form [user]="user"></app-user-form> </mat-card>
+                  </div> -->
+            </div>
+          </div>
+        </nt-domain-state>
+        <div class="button-section">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button routerLink="/">Submit</button>
+        </div>
+       
+        <!-- END API Example -->
+      </mat-step>
+  </mat-horizontal-stepper>
 
   <hr />
   <span routerLink="/" title="New Form" class="float">

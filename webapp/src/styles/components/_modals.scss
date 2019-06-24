@@ -39,3 +39,7 @@ body .mat-dialog-container {
   }
   // .cdk-global-overlay-wrapper{overflow-y: auto;position:relative;}
 }
+
+.cdk-overlay-pane {
+  overflow: auto;
+}

@@ -3,9 +3,12 @@
 header {
   background: #fff;
   border-bottom: 1px solid #e2e5e8;
-  border-top:15px solid #203f75;
+  border-top: 15px solid #203f75;
   margin-bottom: 1rem;
-  .logo-title{position:relative;top:12px;}
+  .logo-title {
+    position: relative;
+    top: 12px;
+  }
   .navbar-brand {
     margin-right: 3rem;
     color: #000;

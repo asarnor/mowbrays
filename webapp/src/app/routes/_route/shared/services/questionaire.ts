@@ -1,7 +1,7 @@
 export const QUESTIONAIRE = [
   // Emergency Action Plan
   {
-    type: 'date',
+    type: 'text',
     name: 'date',
     label: 'Date',
     label_s: 'Fecha',
@@ -216,6 +216,73 @@ export const QUESTIONAIRE = [
   },
 ];
 
+export const EMERGENCY_PLAN = {
+  labels: {
+    title: 'Emergency Action Plan',
+    title_s: 'Plan de acción de emergencia',
+    subTitle: 'Must Fill Out and Review',
+    subTitle_s: 'Debe llenar y revisar',
+  },
+  data: [
+    {
+      type: 'text',
+      name: 'date',
+      label: 'Date',
+      label_s: 'Fecha',
+      value: '',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'truck',
+      label: 'Truck',
+      label_s: 'Camion',
+      value: '',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'chipper',
+      label: 'Chipper',
+      label_s: 'Chipper',
+      value: '',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'treeHeight',
+      label: 'Tree Height',
+      label_s: 'Altura del árbol',
+      value: '',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'utility',
+      label: 'Utility',
+      label_s: 'Utilidad',
+      value: '',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'general',
+      label: 'General',
+      label_s: 'Foreman',
+      value: '',
+      required: true,
+    },
+    {
+      type: 'text',
+      name: 'city',
+      label: 'City',
+      label_s: 'Ciudad',
+      value: '',
+      required: true,
+    },
+  ],
+};
+
 export const HAZARDS = {
   labels: {
     title: 'HAZARDS',
@@ -419,9 +486,16 @@ export const CREW_AVAILABLE: object[] = [
 ];
 
 export const CREW_SELECTED: object[] = [
-  { name: 'Devin L. Leslie', fulltime: true, id: 6 },
-  { name: 'Sean K. Wilson', fulltime: true, id: 7 },
-  { name: 'Jordon G. Ibarra', fulltime: true, id: 8 },
-  { name: 'Brian D. Wroblewski', fulltime: true, id: 9 },
-  { name: 'Leslie A. Hazel', fulltime: true, id: 10 },
+  { name: 'Devin L. Leslie', fulltime: true, signed: true, id: 6 },
+  { name: 'Sean K. Wilson', fulltime: true, signed: true, id: 7 },
+  { name: 'Jordon G. Ibarra', fulltime: true, signed: false, id: 8 },
+  { name: 'Brian D. Wroblewski', fulltime: true, signed: false, id: 9 },
+  { name: 'Leslie A. Hazel', fulltime: true, signed: true, id: 10 },
 ];
+
+export const SIGNATURES = {
+  labels: {
+    title: 'Signature',
+    title_s: 'Firmas',
+  },
+};

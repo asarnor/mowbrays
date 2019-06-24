@@ -1,9 +1,19 @@
 /* Include site variables and mixins */
 @import '../../../../../styles/globals';
 .root-component {
-  position:relative;
+  position: relative;
   .my-float {
     margin-top: 22px;
+  }
+
+  form {
+    max-height: 60vh;
+    overflow: auto;
+  }
+
+  .mat-step-header {
+    overflow: visible;
+    display: none !important;
   }
 
   .float {
@@ -20,10 +30,17 @@
     box-shadow: 2px 2px 3px #999;
     z-index: 10;
   }
+
+  .button-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 25px;
+  }
 }
 .btn-mowbray {
-  background-color: #df363d!important;
-  background-image:none!important;
+  background-color: #df363d !important;
+  background-image: none !important;
   color: #ffffff !important;
   padding: 4px 10px;
   border-radius: 25px;

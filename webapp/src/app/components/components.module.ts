@@ -11,6 +11,7 @@ import { FeedbackComponent } from './modals/feedback/feedback.component';
 import { AddCrewModalComponent } from './modals/add-crew/add-crew.component';
 import { AddFormModalComponent } from './modals/add-form/add-form.component';
 import { SignatureModalComponent } from './modals/signature-modal/signature-modal.component';
+import { SummaryViewerModalComponent } from './modals/summary-viewer/summary-viewer-modal.component';
 
 // Layout
 import { FooterComponent } from './masterpage/footer/footer.component';
@@ -37,6 +38,7 @@ const APP_MODALS = [
   AddCrewModalComponent,
   AddFormModalComponent,
   SignatureModalComponent,
+  SummaryViewerModalComponent,
 ];
 
 // Components to include
