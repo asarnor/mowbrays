@@ -6,6 +6,12 @@
     margin-top: 22px;
   }
 
+  .mat-step-header {
+    overflow: visible;
+    display: none !important;
+  }
+  
+
   .float {
     cursor: pointer;
     position: fixed;
@@ -19,6 +25,13 @@
     text-align: center;
     box-shadow: 2px 2px 3px #999;
     z-index: 10;
+  }
+
+  .button-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 25px;
   }
 }
 .btn-mowbray {

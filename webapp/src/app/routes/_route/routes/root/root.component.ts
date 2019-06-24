@@ -9,7 +9,7 @@ import { SettingsService } from 'src/app/shared/state/settings';
 // Route State
 import { RouteUiStateService } from '../../shared/state/ui';
 // import { RouteDomainStateService } from '../../shared/state/domain';
-import { HAZARDS, WORK_PROCEDURES, EMERGENCY_PLAN } from '../../shared/services/questionaire';
+import { HAZARDS, WORK_PROCEDURES, EMERGENCY_PLAN, SIGNATURES } from '../../shared/services/questionaire';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
 
 @Component({
@@ -24,6 +24,7 @@ export class RootComponent implements OnInit, OnDestroy {
   public hazards: any;
   public workProcedures: any;
   public emergencyProcedures: any;
+  public signatures: any;
   public formMain: FormGroup;
   public spanish: boolean;
 
@@ -39,6 +40,7 @@ export class RootComponent implements OnInit, OnDestroy {
     this.hazards = HAZARDS;
     this.workProcedures = WORK_PROCEDURES;
     this.emergencyProcedures = EMERGENCY_PLAN;
+    this.signatures = SIGNATURES;
     this.formMain = this.fb.group({
       hazards: new FormArray([], this.minSelectedCheckboxes(1)),
       workProcedures: new FormArray([], this.minSelectedCheckboxes(1)),

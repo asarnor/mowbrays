@@ -14,7 +14,7 @@ export class SignatureComponent implements OnInit, OnDestroy {
   public signaturePadOptions: Object = {
     // passed through to szimek/signature_pad constructor
     minWidth: 5,
-    canvasWidth: 700,
+    canvasWidth: 1080,
     canvasHeight: 300,
   };
 

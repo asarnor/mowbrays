@@ -1,5 +1,5 @@
 <step>
-  <ng-template step-label-template>
+  <ng-template step-label-template *ngIf="questionTitle">
     {{questionTitle}}
   </ng-template>
   <ng-template step-body-template>

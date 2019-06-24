@@ -32,7 +32,10 @@
               </div>
             </div>
           </nt-domain-state>
-          <button mat-button matStepperNext>Next</button>
+          <div class="button-section">
+              <button mat-button matStepperNext>Next</button>
+          </div>
+         
           <!-- END API Example -->
         </mat-step>
     <mat-step label="Hazards">
@@ -61,8 +64,11 @@
           </div>
         </div>
       </nt-domain-state>
-      <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <div class="button-section">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+      </div>
+      
       <!-- END API Example -->
     </mat-step>
     <mat-step label="Work Proccedures">
@@ -91,10 +97,35 @@
           </div>
         </div>
       </nt-domain-state>
-      <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Sign</button>
+      <div class="button-section">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Sign</button>
+      </div>
+      
       <!-- END API Example -->
     </mat-step>
+    <mat-step label="Signature">
+        <!-- BEGIN API Example -->
+        <nt-domain-state [state]="route.users">
+          <div class="p-2">
+            <div class="row">
+              <div class="col col-12 col-md-12">
+                  <h1>{{ spanish ? signatures.labels.title_s : signatures.labels.title }}</h1>
+                <app-signature></app-signature>
+              </div>
+              <!-- <div class="col col-12 col-md-4">
+                    <mat-card> <app-user-form [user]="user"></app-user-form> </mat-card>
+                  </div> -->
+            </div>
+          </div>
+        </nt-domain-state>
+        <div class="button-section">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Submit</button>
+        </div>
+       
+        <!-- END API Example -->
+      </mat-step>
   </mat-horizontal-stepper>
 
   <hr />

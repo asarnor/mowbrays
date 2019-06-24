@@ -492,3 +492,10 @@ export const CREW_SELECTED: object[] = [
   { name: 'Brian D. Wroblewski', fulltime: true, signed: false, id: 9 },
   { name: 'Leslie A. Hazel', fulltime: true, signed: true, id: 10 },
 ];
+
+export const SIGNATURES = {
+  labels: {
+    title: 'Signature',
+    title_s: 'Firmas',
+  },
+};

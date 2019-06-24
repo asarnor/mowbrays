@@ -1,6 +1,8 @@
 .signature-component {
   .signature-pad {
     border: solid black 1px;
+    max-width: 1080px;
+    margin: auto;
   }
   .clear-button {
     cursor: pointer;
