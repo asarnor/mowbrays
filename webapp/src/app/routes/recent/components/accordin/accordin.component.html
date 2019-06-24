@@ -1,6 +1,6 @@
 <div class="container-fluid root-component">
-  <mat-accordion>
-    <mat-expansion-panel>
+  <mat-accordion #accordion="matAccordion" multi="false">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <strong> Your Signature Required</strong>

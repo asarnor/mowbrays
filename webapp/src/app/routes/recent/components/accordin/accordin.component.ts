@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from '@angular/core';
 import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 import { ModalsService } from '$modals';
+import {MatAccordion} from '@angular/material';
 
 export interface JobBriefSummary {
   Address: string;
@@ -51,14 +52,6 @@ const ELEMENT_DATA2: JobBriefSummary[] = [
 
 const ELEMENT_DATA3: JobBriefSummary[] = [
   {
-    Date: '6/21/2019',
-    Address: '515 E. Sage St. La Porte, IN 46350',
-    Foreman: 'Brian D. Wroblewski',
-    Signed: true,
-    Forms: ['hazards'],
-    View: 'Job Briefing',
-  },
-  {
     Date: '6/24/2019',
     Address: '8187 Plumb Branch Drive Garden City, NY 11530',
     Foreman: 'Leslie A. Hazel',
@@ -75,11 +68,14 @@ const ELEMENT_DATA3: JobBriefSummary[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordinComponent implements OnInit, OnDestroy {
-  public panelOpenState: Boolean = false;
+  public panelOpenState: Boolean = true;
   public dataSource = ELEMENT_DATA;
   public dataSource2 = ELEMENT_DATA2;
   public dataSource3 = ELEMENT_DATA3;
   public crewMembers = CREW_SELECTED;
+  
+  @ViewChild('accordion', { static: true }) Accordion: MatAccordion;
+
   constructor(private modals: ModalsService) {}
 
   public modifyForm($event: Event) {
@@ -117,6 +113,7 @@ export class AccordinComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('accordin');
+    // this.Accordion.openAll();
   }
 
   /** Must be present even if not used for autounsub */
