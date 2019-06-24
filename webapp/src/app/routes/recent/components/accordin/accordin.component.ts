@@ -92,7 +92,17 @@ export class AccordinComponent implements OnInit, OnDestroy {
       .subscribe(value => {
         console.log(`Dialog sent: ${value}`);
         if (value !== undefined) {
-          this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+          this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed()
+          .subscribe(value => {
+            console.log(`Dialog sent: ${value}`);
+            if (value !== undefined) {
+              this.router.navigate(['/','route']).then(nav => {
+                console.log(nav); // true if navigation is successful
+              }, err => {
+                console.log(err) // when there's an error
+              });
+            }
+          });
         }
       });
   }
@@ -104,15 +114,9 @@ export class AccordinComponent implements OnInit, OnDestroy {
 
   public crewForm($event: Event) {
     $event.stopPropagation();
-    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed()
-    .subscribe(value => {
-      console.log(`Dialog sent: ${value}`);
-      if (value !== undefined) {
-        this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
-        this.router.navigate(['route']);
-      }
-    });
-    
+    this.modals
+      .open('AddCrewModalComponent', false, 'lg', 60)
+      .afterClosed();
   }
 
   public summaryForm($event: Event) {
