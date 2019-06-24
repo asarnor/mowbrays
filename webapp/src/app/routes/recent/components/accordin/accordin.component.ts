@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, OnDestroy, ViewChild } from
 import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
 import { ModalsService } from '$modals';
 import { MatAccordion } from '@angular/material';
+import { Router } from '@angular/router';
 
 export interface JobBriefSummary {
   Address: string;
@@ -76,7 +77,7 @@ export class AccordinComponent implements OnInit, OnDestroy {
 
   @ViewChild('accordion', { static: true }) Accordion: MatAccordion;
 
-  constructor(private modals: ModalsService) {}
+  constructor(private modals: ModalsService, private router: Router) {}
 
   public modifyForm($event: Event) {
     $event.stopPropagation();
@@ -103,7 +104,15 @@ export class AccordinComponent implements OnInit, OnDestroy {
 
   public crewForm($event: Event) {
     $event.stopPropagation();
-    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed()
+    .subscribe(value => {
+      console.log(`Dialog sent: ${value}`);
+      if (value !== undefined) {
+        this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+        this.router.navigate(['route']);
+      }
+    });
+    
   }
 
   public summaryForm($event: Event) {

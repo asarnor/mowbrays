@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ModalsService } from '$modals';
 import { CREW_SELECTED } from 'src/app/routes/_route/shared/services/questionaire';
+import { Router } from '@angular/router';
 
 export interface JobBriefSummary {
   Address: string;
@@ -115,7 +116,7 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
   public dataSource = new MatTableDataSource(ELEMENT_DATA);
   public expandedElement: JobBriefSummary | null;
   public crewSelected: any = CREW_SELECTED;
-  constructor(private modals: ModalsService) {}
+  constructor(private modals: ModalsService, private router: Router) {}
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -154,7 +155,14 @@ export class SummaryTableComponent implements OnInit, OnDestroy {
 
   public crewForm($event: Event) {
     $event.stopPropagation();
-    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+    this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed()
+    .subscribe(value => {
+      console.log(`Dialog sent: ${value}`);
+      if (value !== undefined) {
+        this.modals.open('AddCrewModalComponent', false, 'lg', 60).afterClosed();
+        this.router.navigate(['route']);
+      }
+    });
   }
 
   public summaryForm($event: Event) {
